@@ -114,6 +114,41 @@ function insertarMedico(id_medico, nombre_medico, telefono_medico, direccion_med
     });
 }
 
+function actualizarMedico(id_medico, nombre_medico, telefono_medico, direccion_medico, fec_nacimiento_medico,
+        id_especialidad) {
+    var formData = new FormData();
+
+    formData.append("id_medico", id_medico.value);
+    formData.append("nombre", nombre_medico.value);
+    formData.append("telefono", telefono_medico.value);
+    formData.append("direccion", direccion_medico.value);
+    formData.append("fec_nacimiento", fec_nacimiento_medico.value);
+    formData.append("id_especialidad", id_especialidad.value);
+    formData.append("activo", "true");
+
+    fetch('medico', {
+        method: 'PUT',
+        body: formData
+    }).then(response => response.text())
+        .then(data=> {
+        crearRespuesta(data);
+    });
+}
+
+function getMedicoPorEspecialidad(id_especialidad) {
+    var id = id_especialidad.value;
+    console.log(id);
+    fetch('medico?id_especialidad=' + id, {
+        method: 'GET'
+    })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                crearTablaJson(data);
+
+            });
+}
+
 function deleteMedico(id_medico){
     var formData = new FormData();
     formData.append("id_medico", id_medico.value);

@@ -96,6 +96,9 @@
                                     <div class="input-group mb-3">
                                         <button type="button" class="btn btn-success" onclick="insertarMedico(id_medico, nombre_medico,telefono_medico,direccion_medico,fec_nacimiento_medico,id_especialidad_medico)">Insertar medico</button>
                                     </div>
+                                    <div class="input-group mb-3">
+                                        <button type="button" class="btn btn-success" onclick="actualizarMedico(id_medico, nombre_medico,telefono_medico,direccion_medico,fec_nacimiento_medico,id_especialidad_medico)">Actualizar datos medico</button>
+                                    </div>
                                 </li>
                                 <li class="list-group-item">
                                     <div class="input-group mb-3">
@@ -105,6 +108,15 @@
                                         <button type="button" class="btn btn-danger" onclick="deleteMedico(id_medico_eliminar)">Eliminar medico</button>
                                     </div>
                                 </li>
+                                <li class="list-group-item">
+                                    <label>Buscar por especialidad</label>
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control" id="id_especialidad_busqueda_medico" placeholder="Identificador">
+                                    </div>
+                                    <div class="input-group mb-3">
+                                        <button type="button" class="btn btn-primary" onclick="getMedicoPorEspecialidad(id_especialidad_busqueda_medico)">Traer especialidades</button>
+                                    </div>
+                                </li> 
                             </ul>
                         </div>
                     </div>
